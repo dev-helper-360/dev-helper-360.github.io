@@ -66,7 +66,7 @@ body, html {
 }
 
 main {
-  margin-left: var(--sidebar-width);
+  margin-left: 0; /* 기본적으로 사이드바 공간 없음 */
   padding: 2rem;
   min-height: 100vh;
   background: var(--bg-main);
@@ -75,6 +75,10 @@ main {
 
 main.full {
   margin-left: 0;
+}
+
+main.sidebar-open {
+  margin-left: var(--sidebar-width); /* 사이드바가 열렸을 때만 여백 추가 */
 }
 
 /* 모바일용 햄버거 버튼 */
@@ -109,10 +113,14 @@ main.full {
   }
 }
 
-/* 데스크톱에서는 사이드바 기본 표시 */
+/* 데스크톱에서도 사이드바는 기본적으로 닫힌 상태 */
 @media (min-width: 993px) {
   .sidebar {
-    left: 0;
+    left: -280px; /* 기본적으로 숨김 */
+  }
+  
+  .sidebar.open {
+    left: 0; /* 열릴 때만 보임 */
   }
   
   .container.sidebar-open {
@@ -143,10 +151,13 @@ textarea.form-control {
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease;
+  color: white !important;
+  text-decoration: none;
 }
 
 .btn-purple:hover {
   background-color: #5a34a1;
+  color: white !important;
 }
 
 /* 사이드바 스타일 */
@@ -371,9 +382,9 @@ footer {
 }
 
 .lang-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  background: rgba(111, 66, 193, 0.9);
+  border: 1px solid rgba(111, 66, 193, 0.3);
+  color: white !important;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -381,18 +392,21 @@ footer {
   cursor: pointer;
   backdrop-filter: blur(10px);
   font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .lang-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(111, 66, 193, 1);
+  border-color: rgba(111, 66, 193, 0.5);
   transform: translateY(-1px);
+  color: white !important;
 }
 
 .lang-btn.active {
-  background: rgba(255, 255, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(111, 66, 193, 1);
+  border-color: rgba(111, 66, 193, 0.6);
   font-weight: 600;
+  color: white !important;
 }
 
 /* 반응형 조정 */

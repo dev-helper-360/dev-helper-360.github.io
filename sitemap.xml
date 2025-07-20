@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yoursite.com/</loc>
+    <loc>https://dev-helper-360.github.io/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/base64.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/base64.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/json.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/json.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/url.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/url.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/calculator.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/calculator.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/timestamp.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/timestamp.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/color-converter.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/color-converter.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/regex-tester.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/regex-tester.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yoursite.com/tools/hash-generator.html</loc>
+    <loc>https://dev-helper-360.github.io/tools/hash-generator.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -25,8 +25,8 @@ const languages = {
       button: "사용하기"
     },
     calculator: {
-      title: "간단 계산기",
-      description: "수식을 입력하여 빠르게 계산합니다.",
+      title: "계산기",
+      description: "실용적인 계산기 인터페이스로 빠르고 정확한 계산을 제공합니다.",
       button: "사용하기"
     },
     timestamp: {
@@ -45,7 +45,7 @@ const languages = {
     },
     
     // 푸터
-    footer: "© 2024 UtilTools. 개발자를 위한 실용적인 도구 모음.",
+    footer: "© 2025 UtilTools. 내가 쓰려고 만든 여러가지 툴.",
     
     // 공통 버튼들
     buttons: {
@@ -143,8 +143,8 @@ const languages = {
         useExample: "사용하기"
       },
       hash: {
-        title: "해시 생성기",
-        subtitle: "MD5, SHA1, SHA256 등 다양한 해시 알고리즘으로 텍스트를 암호화합니다",
+        title: "해시 생성기/검증기",
+        subtitle: "MD5, SHA1, SHA256 등 다양한 해시 알고리즘으로 텍스트를 암호화하고 검증합니다",
         inputText: "해시할 텍스트",
         algorithms: "해시 알고리즘",
         generate: "해시 생성",
@@ -187,8 +187,8 @@ const languages = {
       button: "Use Tool"
     },
     calculator: {
-      title: "Simple Calculator",
-      description: "Quickly calculate mathematical expressions.",
+      title: "Calculator",
+      description: "Practical calculator interface for fast and accurate calculations.",
       button: "Use Tool"
     },
     timestamp: {
@@ -207,7 +207,7 @@ const languages = {
     },
     
     // 푸터
-    footer: "© 2024 UtilTools. Practical tools for developers.",
+    footer: "© 2025 UtilTools. Practical tools for developers.",
     
     // 공통 버튼들
     buttons: {
@@ -305,8 +305,8 @@ const languages = {
         useExample: "Use This"
       },
       hash: {
-        title: "Hash Generator",
-        subtitle: "Encrypt text with various hash algorithms like MD5, SHA1, SHA256",
+        title: "Hash Generator/Verifier",
+        subtitle: "Encrypt and verify text with various hash algorithms like MD5, SHA1, SHA256",
         inputText: "Text to Hash",
         algorithms: "Hash Algorithms",
         generate: "Generate Hash",

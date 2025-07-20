@@ -56,7 +56,7 @@ function createSidebar() {
             <i class="fas fa-search"></i> 정규표현식 테스터
           </a>
           <a href="${basePath}tools/hash-generator.html" class="nav-link sub-link" data-page="hash">
-            <i class="fas fa-fingerprint"></i> 해시 생성기
+            <i class="fas fa-fingerprint"></i> 해시 생성기/검증기
           </a>
         </div>
       </div>
@@ -97,37 +97,18 @@ function createHamburgerButton() {
 
 // 사이드바 토글 설정
 function setupSidebarToggle() {
-  // 현재 페이지가 메인 페이지인지 확인
-  const isMainPage = window.location.pathname.endsWith('index.html') || 
-                     window.location.pathname.endsWith('/') || 
-                     window.location.pathname === '';
-  
-  // 데스크톱에서는 사이드바를 기본적으로 열어둠 (메인 페이지 제외)
-  if (window.innerWidth >= 992 && !isMainPage) {
-    sidebar.classList.add('open');
-    if (hamburgerButton) {
-      hamburgerButton.style.display = 'none';
-    }
-  } else {
-    // 메인 페이지이거나 모바일에서는 사이드바 닫기
-    sidebar.classList.remove('open');
-    if (hamburgerButton) {
-      hamburgerButton.style.display = 'block';
-    }
+  // 모든 경우에 사이드바를 기본적으로 닫힌 상태로 유지
+  sidebar.classList.remove('open');
+  if (hamburgerButton) {
+    hamburgerButton.style.display = 'block';
   }
   
   // 윈도우 리사이즈 이벤트
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 992 && !isMainPage) {
-      sidebar.classList.add('open');
-      if (hamburgerButton) {
-        hamburgerButton.style.display = 'none';
-      }
-    } else {
-      sidebar.classList.remove('open');
-      if (hamburgerButton) {
-        hamburgerButton.style.display = 'block';
-      }
+    // 리사이즈 시에도 사이드바는 닫힌 상태 유지
+    sidebar.classList.remove('open');
+    if (hamburgerButton) {
+      hamburgerButton.style.display = 'block';
     }
   });
 }
@@ -135,6 +116,14 @@ function setupSidebarToggle() {
 // 사이드바 토글
 function toggleSidebar() {
   sidebar.classList.toggle('open');
+  
+  // 메인 콘텐츠 영역 조정
+  const mainContent = document.querySelector('main') || document.querySelector('.container') || document.body;
+  if (sidebar.classList.contains('open')) {
+    mainContent.classList.add('sidebar-open');
+  } else {
+    mainContent.classList.remove('sidebar-open');
+  }
   
   // 햄버거 버튼 표시/숨김 관리
   if (hamburgerButton) {

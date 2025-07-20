@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://dev-helper-360.github.io/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1 
