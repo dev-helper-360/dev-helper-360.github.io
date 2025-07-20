@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API 테스터 - UtilTools</title>
+  <meta name="description" content="REST API를 호출하고 응답을 실시간으로 확인하는 무료 온라인 도구입니다.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <style>
+    .request-section, .response-section {
+      min-height: 400px;
+    }
+    .header-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .header-row input {
+      flex: 1;
+    }
+    .response-tabs {
+      margin-top: 15px;
+    }
+    .status-success { color: #28a745; }
+    .status-error { color: #dc3545; }
+    .status-info { color: #17a2b8; }
+    .status-warning { color: #ffc107; }
+    .response-time {
+      font-size: 0.9em;
+      color: #6c757d;
+    }
+    .curl-output {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.9em;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <header class="text-center py-4">
+          <h1 class="display-5 fw-bold text-purple">
+            <i class="fas fa-globe me-2"></i>API 테스터
+          </h1>
+          <p class="lead text-muted">REST API를 호출하고 응답을 실시간으로 확인합니다</p>
+        </header>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="row">
+          <!-- 요청 설정 -->
+          <div class="col-md-6">
+            <div class="card request-section">
+              <div class="card-header">
+                <h5 class="mb-0">요청 설정</h5>
+              </div>
+              <div class="card-body">
+                <!-- HTTP 메서드 및 URL -->
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <select id="httpMethod" class="form-select">
+                      <option value="GET">GET</option>
+                      <option value="POST">POST</option>
+                      <option value="PUT">PUT</option>
+                      <option value="PATCH">PATCH</option>
+                      <option value="DELETE">DELETE</option>
+                      <option value="HEAD">HEAD</option>
+                      <option value="OPTIONS">OPTIONS</option>
+                    </select>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="url" id="requestUrl" class="form-control" placeholder="https://api.example.com/endpoint" value="https://jsonplaceholder.typicode.com/posts/1">
+                  </div>
+                </div>
+
+                <!-- 헤더 설정 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold">요청 헤더</label>
+                  <div id="headersContainer">
+                    <div class="header-row">
+                      <input type="text" class="form-control" placeholder="Content-Type" value="application/json">
+                      <input type="text" class="form-control" placeholder="application/json">
+                      <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeHeader(this)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                    <div class="header-row">
+                      <input type="text" class="form-control" placeholder="Authorization">
+                      <input type="text" class="form-control" placeholder="Bearer token">
+                      <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeHeader(this)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline-primary btn-sm mt-2" onclick="addHeader()">
+                    <i class="fas fa-plus me-1"></i>헤더 추가
+                  </button>
+                </div>
+
+                <!-- 요청 본문 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold">요청 본문</label>
+                  <textarea id="requestBody" class="form-control" rows="8" placeholder='{"key": "value"}'></textarea>
+                </div>
+
+                <!-- 요청 옵션 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold">요청 옵션</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="followRedirects" checked>
+                    <label class="form-check-label" for="followRedirects">
+                      리다이렉트 따라가기
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="includeCredentials">
+                    <label class="form-check-label" for="includeCredentials">
+                      인증 정보 포함
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="timeoutEnabled">
+                    <label class="form-check-label" for="timeoutEnabled">
+                      타임아웃 설정
+                    </label>
+                  </div>
+                  <div class="mt-2" id="timeoutContainer" style="display: none;">
+                    <input type="number" id="timeoutValue" class="form-control" placeholder="타임아웃 (초)" value="30" min="1" max="300">
+                  </div>
+                </div>
+
+                <!-- 실행 버튼 -->
+                <div class="d-grid">
+                  <button class="btn btn-purple btn-lg" onclick="sendRequest()">
+                    <i class="fas fa-paper-plane me-2"></i>요청 보내기
+                  </button>
+                </div>
+
+                <!-- 예제 요청들 -->
+                <div class="mt-3">
+                  <label class="form-label fw-bold">예제 요청</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-outline-secondary btn-sm" onclick="loadExample('get')">GET 예제</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="loadExample('post')">POST 예제</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="loadExample('put')">PUT 예제</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="loadExample('delete')">DELETE 예제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 응답 결과 -->
+          <div class="col-md-6">
+            <div class="card response-section">
+              <div class="card-header">
+                <h5 class="mb-0">응답 결과</h5>
+              </div>
+              <div class="card-body">
+                <div id="responseInfo" style="display: none;">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <strong>상태 코드:</strong>
+                      <span id="statusCode" class="ms-2"></span>
+                    </div>
+                    <div class="col-md-6">
+                      <strong>응답 시간:</strong>
+                      <span id="responseTime" class="ms-2 response-time"></span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <strong>응답 헤더:</strong>
+                      <pre id="responseHeaders" class="mt-2" style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; font-size: 0.9em;"></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 응답 탭 -->
+                <div class="response-tabs">
+                  <ul class="nav nav-tabs" id="responseTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="body-tab" data-bs-toggle="tab" data-bs-target="#body" type="button" role="tab">
+                        응답 본문
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="curl-tab" data-bs-toggle="tab" data-bs-target="#curl" type="button" role="tab">
+                        cURL 명령어
+                      </button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="responseTabContent">
+                    <div class="tab-pane fade show active" id="body" role="tabpanel">
+                      <pre id="responseBody" style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 300px; overflow-y: auto;"></pre>
+                    </div>
+                    <div class="tab-pane fade" id="curl" role="tabpanel">
+                      <div id="curlCommand" class="curl-output"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 응답 액션 -->
+                <div class="mt-3" id="responseActions" style="display: none;">
+                  <button class="btn btn-outline-primary btn-sm" onclick="copyResponse()">
+                    <i class="fas fa-copy me-1"></i>응답 복사
+                  </button>
+                  <button class="btn btn-outline-success btn-sm" onclick="downloadResponse()">
+                    <i class="fas fa-download me-1"></i>응답 다운로드
+                  </button>
+                  <button class="btn btn-outline-info btn-sm" onclick="formatResponse()">
+                    <i class="fas fa-magic me-1"></i>JSON 포맷팅
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 요청 히스토리 -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">요청 히스토리</h5>
+                <button class="btn btn-outline-danger btn-sm" onclick="clearHistory()">
+                  <i class="fas fa-trash me-1"></i>히스토리 지우기
+                </button>
+              </div>
+              <div class="card-body">
+                <div id="requestHistory" class="list-group">
+                  <!-- 히스토리 항목들이 여기에 추가됩니다 -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="../js/api-tester.js"></script>
+</body>
+</html> 

@@ -58,6 +58,15 @@ function createSidebar() {
           <a href="${basePath}tools/hash-generator.html" class="nav-link sub-link" data-page="hash">
             <i class="fas fa-fingerprint"></i> 해시 생성기/검증기
           </a>
+          <a href="${basePath}tools/code-formatter.html" class="nav-link sub-link" data-page="code-formatter">
+            <i class="fas fa-code"></i> 코드 포매터
+          </a>
+          <a href="${basePath}tools/api-tester.html" class="nav-link sub-link" data-page="api-tester">
+            <i class="fas fa-globe"></i> API 테스터
+          </a>
+          <a href="${basePath}tools/jwt-decoder.html" class="nav-link sub-link" data-page="jwt-decoder">
+            <i class="fas fa-key"></i> JWT 토큰 디코더
+          </a>
         </div>
       </div>
       
