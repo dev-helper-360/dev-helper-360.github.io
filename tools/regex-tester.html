@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>정규표현식 테스터 - UtilTools</title>
+  <meta name="description" content="정규표현식을 실시간으로 테스트하고 디버깅할 수 있는 도구입니다." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="../css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-purple mb-3">
+            <i class="fas fa-code"></i> 정규표현식 테스터
+          </h1>
+          <p class="lead text-muted">정규표현식을 실시간으로 테스트하고 디버깅합니다</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- 정규표현식 입력 -->
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-search"></i> 정규표현식</h5>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="regexInput" class="form-label">정규표현식 패턴</label>
+                  <input type="text" class="form-control" id="regexInput" placeholder="/[a-z]+/g" value="/[a-z]+/g">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">옵션</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="globalFlag" checked>
+                    <label class="form-check-label" for="globalFlag">Global (g)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="caseInsensitiveFlag">
+                    <label class="form-check-label" for="caseInsensitiveFlag">Case Insensitive (i)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="multilineFlag">
+                    <label class="form-check-label" for="multilineFlag">Multiline (m)</label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary" onclick="regexTester.testRegex()">
+                    <i class="fas fa-play"></i> 테스트 실행
+                  </button>
+                  <button class="btn btn-outline-secondary ms-2" onclick="regexTester.clearResults()">
+                    <i class="fas fa-trash"></i> 결과 지우기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 테스트 텍스트 -->
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-file-text"></i> 테스트 텍스트</h5>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="testText" class="form-label">테스트할 텍스트</label>
+                  <textarea class="form-control" id="testText" rows="8" placeholder="여기에 테스트할 텍스트를 입력하세요...">Hello World
+This is a test text with some numbers: 123, 456, 789
+Email: test@example.com
+Phone: 010-1234-5678</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 결과 -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-list"></i> 매칭 결과</h5>
+              </div>
+              <div class="card-body">
+                <div id="matchResults"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 정규표현식 예제 -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-lightbulb"></i> 자주 사용하는 정규표현식</h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-3" id="regexExamples">
+                  <!-- 예제들이 여기에 생성됩니다 -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/languages.js"></script>
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/regex-tester.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      languageManager = new LanguageManager();
+    });
+  </script>
+</body>
+</html> 

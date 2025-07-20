@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UtilTools - 감성 실용 도구 모음</title>
+  <meta name="description" content="무료 온라인 개발자 도구 모음. Base64 인코더/디코더, JSON 포매터, URL 인코더/디코더, 정규표현식 테스터, 해시 생성기, 색상 변환기, 계산기, 타임스탬프 변환기 등을 제공합니다. 프로그래머, 개발자를 위한 실용적인 웹 도구입니다." />
+  <meta name="keywords" content="개발자도구, 온라인도구, Base64, JSON포매터, URL인코더, 정규표현식, 해시생성기, 색상변환기, 계산기, 타임스탬프, 프로그래머도구, 코딩도구, 무료도구" />
+  <meta name="author" content="UtilTools" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yoursite.com/" />
+  <meta property="og:title" content="UtilTools - 무료 온라인 개발자 도구 모음" />
+  <meta property="og:description" content="Base64, JSON, URL 인코더, 정규표현식 테스터 등 개발자를 위한 실용적인 온라인 도구들을 무료로 제공합니다." />
+  <meta property="og:image" content="https://yoursite.com/og-image.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yoursite.com/" />
+  <meta property="twitter:title" content="UtilTools - 무료 온라인 개발자 도구 모음" />
+  <meta property="twitter:description" content="Base64, JSON, URL 인코더, 정규표현식 테스터 등 개발자를 위한 실용적인 온라인 도구들을 무료로 제공합니다." />
+  <meta property="twitter:image" content="https://yoursite.com/og-image.png" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yoursite.com/" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UtilTools",
+    "description": "무료 온라인 개발자 도구 모음. Base64 인코더/디코더, JSON 포매터, URL 인코더/디코더, 정규표현식 테스터, 해시 생성기, 색상 변환기, 계산기, 타임스탬프 변환기 등을 제공합니다.",
+    "url": "https://yoursite.com/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "UtilTools"
+    },
+    "featureList": [
+      "Base64 인코더/디코더",
+      "JSON 포매터",
+      "URL 인코더/디코더",
+      "정규표현식 테스터",
+      "해시 생성기",
+      "색상 변환기",
+      "계산기",
+      "타임스탬프 변환기"
+    ]
+  }
+  </script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <header class="text-center py-5 mt-4" style="position: relative;">
+          <h1 class="display-4 fw-bold text-purple mb-3">🔧 UtilTools</h1>
+          <p class="lead text-muted">개발자를 위한 실용적인 온라인 도구 모음</p>
+        </header>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-code fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">Base64 인코더/디코더</h5>
+                <p class="card-text">텍스트를 Base64로 인코딩하거나 디코딩합니다.</p>
+                <a href="tools/base64.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-file-code fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">JSON 포매터</h5>
+                <p class="card-text">JSON 데이터를 읽기 쉽게 포맷팅합니다.</p>
+                <a href="tools/json.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-link fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">URL 인코더/디코더</h5>
+                <p class="card-text">URL을 인코딩하거나 디코딩합니다.</p>
+                <a href="tools/url.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-calculator fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">간단 계산기</h5>
+                <p class="card-text">수식을 입력하여 빠르게 계산합니다.</p>
+                <a href="tools/calculator.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-clock fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">Unix 타임스탬프 변환</h5>
+                <p class="card-text">Unix 타임스탬프를 읽기 쉬운 날짜로 변환합니다.</p>
+                <a href="tools/timestamp.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-search fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">정규표현식 테스터</h5>
+                <p class="card-text">정규표현식을 실시간으로 테스트하고 디버깅합니다.</p>
+                <a href="tools/regex-tester.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-fingerprint fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">해시 생성기</h5>
+                <p class="card-text">MD5, SHA1, SHA256 등 다양한 해시 알고리즘으로 암호화합니다.</p>
+                <a href="tools/hash-generator.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-palette fa-3x text-purple mb-3"></i>
+                <h5 class="card-title">색상 변환기</h5>
+                <p class="card-text">HEX, RGB, HSL 색상 코드를 서로 변환합니다.</p>
+                <a href="tools/color-converter.html" class="btn btn-purple">사용하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SEO 친화적인 추가 콘텐츠 -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h4 mb-4">개발자를 위한 무료 온라인 도구 모음</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">텍스트 변환 도구</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-code text-purple me-2"></i><strong>Base64 인코더/디코더</strong> - 텍스트를 Base64로 인코딩하거나 디코딩</li>
+                  <li><i class="fas fa-link text-purple me-2"></i><strong>URL 인코더/디코더</strong> - URL을 인코딩하거나 디코딩</li>
+                  <li><i class="fas fa-file-code text-purple me-2"></i><strong>JSON 포매터</strong> - JSON 데이터를 읽기 쉽게 포맷팅</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">개발 도구</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-search text-purple me-2"></i><strong>정규표현식 테스터</strong> - 정규표현식을 실시간으로 테스트</li>
+                  <li><i class="fas fa-fingerprint text-purple me-2"></i><strong>해시 생성기</strong> - MD5, SHA1, SHA256 등 해시 생성</li>
+                  <li><i class="fas fa-clock text-purple me-2"></i><strong>타임스탬프 변환기</strong> - Unix 타임스탬프 변환</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">유틸리티 도구</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-calculator text-purple me-2"></i><strong>간단 계산기</strong> - 수식을 입력하여 빠르게 계산</li>
+                  <li><i class="fas fa-palette text-purple me-2"></i><strong>색상 변환기</strong> - HEX, RGB, HSL 색상 코드 변환</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">주요 특징</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-check text-success me-2"></i>100% 무료 사용</li>
+                  <li><i class="fas fa-check text-success me-2"></i>실시간 변환</li>
+                  <li><i class="fas fa-check text-success me-2"></i>모바일 친화적</li>
+                  <li><i class="fas fa-check text-success me-2"></i>개인정보 보호</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- English Content for International Users -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h4 mb-4">Free Online Developer Tools Collection</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Text Conversion Tools</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-code text-purple me-2"></i><strong>Base64 Encoder/Decoder</strong> - Encode or decode text to Base64 format</li>
+                  <li><i class="fas fa-link text-purple me-2"></i><strong>URL Encoder/Decoder</strong> - Encode or decode URLs</li>
+                  <li><i class="fas fa-file-code text-purple me-2"></i><strong>JSON Formatter</strong> - Format JSON data for better readability</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Development Tools</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-search text-purple me-2"></i><strong>Regex Tester</strong> - Test regular expressions in real-time</li>
+                  <li><i class="fas fa-fingerprint text-purple me-2"></i><strong>Hash Generator</strong> - Generate MD5, SHA1, SHA256 hashes</li>
+                  <li><i class="fas fa-clock text-purple me-2"></i><strong>Timestamp Converter</strong> - Convert Unix timestamps</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Utility Tools</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-calculator text-purple me-2"></i><strong>Simple Calculator</strong> - Quick mathematical calculations</li>
+                  <li><i class="fas fa-palette text-purple me-2"></i><strong>Color Converter</strong> - Convert between HEX, RGB, HSL color codes</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Key Features</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-check text-success me-2"></i>100% Free to use</li>
+                  <li><i class="fas fa-check text-success me-2"></i>Real-time conversion</li>
+                  <li><i class="fas fa-check text-success me-2"></i>Mobile-friendly</li>
+                  <li><i class="fas fa-check text-success me-2"></i>Privacy protected</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popular Use Cases -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h4 mb-4">Popular Use Cases & Examples</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Common Development Tasks</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-code text-info me-2"></i><strong>API Development</strong> - Test Base64 encoding for API authentication</li>
+                  <li><i class="fas fa-database text-info me-2"></i><strong>Data Processing</strong> - Format JSON responses from APIs</li>
+                  <li><i class="fas fa-search text-info me-2"></i><strong>Text Analysis</strong> - Use regex patterns for data validation</li>
+                  <li><i class="fas fa-shield-alt text-info me-2"></i><strong>Security Testing</strong> - Generate hashes for password verification</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h5 mb-3">Web Development</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-palette text-info me-2"></i><strong>CSS & Design</strong> - Convert color formats for web projects</li>
+                  <li><i class="fas fa-link text-info me-2"></i><strong>URL Handling</strong> - Encode special characters in URLs</li>
+                  <li><i class="fas fa-clock text-info me-2"></i><strong>Date Handling</strong> - Convert timestamps for JavaScript applications</li>
+                  <li><i class="fas fa-calculator text-info me-2"></i><strong>Quick Math</strong> - Calculate values for CSS properties</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center py-4 mt-5">
+      <p class="text-muted">© 2024 UtilTools. 개발자를 위한 실용적인 도구 모음.</p>
+      <div class="mt-3">
+        <small class="text-muted">
+          <a href="/privacy" class="text-decoration-none me-3">개인정보처리방침</a>
+          <a href="/terms" class="text-decoration-none me-3">이용약관</a>
+          <a href="/contact" class="text-decoration-none">문의하기</a>
+        </small>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="js/languages.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    // 언어 시스템 초기화
+    document.addEventListener('DOMContentLoaded', function() {
+      languageManager = new LanguageManager();
+    });
+  </script>
+</body>
+</html>
